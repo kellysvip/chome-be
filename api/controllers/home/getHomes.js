@@ -8,7 +8,7 @@ const getHomes = async (req, res, next) => {
 
     const listOfFound = await Home.find()
     
-    res.status(200).send({data: listOfFound.slice(0,30)})
+    res.status(200).send({data: listOfFound.slice(0,5)})
   } catch (error) {
     next(createError(404, error));
   }
