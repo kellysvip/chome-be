@@ -4,6 +4,5 @@ const router = express.Router();
 
 // READ
 router.get('/', getHomes);
-router.post('/', getHomes);
 
 module.exports = router;
