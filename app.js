@@ -19,6 +19,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())
 
+// Connect to MONGODB
+mongoose.connect(process.env.MONGO_URI, () => {
+	console.log(`Connected to Database!, ${process.env.MONGO_URI}`);
+});
+
 app.use('/', indexRouter);
 
 //catch when when request match no route
@@ -34,9 +39,6 @@ app.use((err,req,res,next)=>{
 })
 
 
-// Connect to MONGODB
-mongoose.connect(process.env.MONGO_URI, () => {
-	console.log(`Connected to Database!, ${process.env.MONGO_URI}`);
-});
+
 
 module.exports = app;
